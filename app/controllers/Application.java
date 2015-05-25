@@ -13,7 +13,6 @@ public class Application extends Controller {
 
     public static Result changepass(){
 
-        public static Result changepass(){
-        }
+
     }
 }
