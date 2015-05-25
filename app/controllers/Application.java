@@ -23,4 +23,7 @@ public class Application extends Controller {
     public static Result board() {
         return ok(board.render());
     }
+    public static Result thanks() {
+        return ok(thanks.render());
+    }
 }
