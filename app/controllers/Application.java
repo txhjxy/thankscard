@@ -19,5 +19,8 @@ public class Application extends Controller {
     }
     public static Result changepass() {
         return ok(changepass.render());
-  }
+    }
+    public static Result board() {
+        return ok(board.render());
+    }
 }
