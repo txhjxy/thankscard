@@ -10,10 +10,10 @@ public class Authentication extends Controller {
 		public String password;
 
 		public String validate() {
-			if (authenticate(username, password)) {
+			if (authenticate(userid, password)) {
 				return null;
 			}
-			return "Invalid username and password";
+			return "ユーザーIDまたはパスワードが間違っています";
 		}
 
 		private Boolean authenticate(String userid, String password) {
@@ -25,7 +25,7 @@ public class Authentication extends Controller {
 
 	public static Result index() {
 		if (session("login") != null) {
-			return ok("あなたは既に " + session("login") + "としてログインしています");
+			return ok("あなたは既にログインしています");
 		}
 		return ok(index.render(loginForm));
 	}
@@ -36,8 +36,8 @@ public class Authentication extends Controller {
 			return badRequest(index.render(form));
 		} else {
 			Login login = form.get();
-			session("login", login.username);
-			return ok("ようこそ " + login.username + " さん!!");
+			session("login", login.userid);
+			return ok(routes.Application.index.render(Thanks.find.byId(session(userid)));
 		}
 	}
 	public static Result logout() {
