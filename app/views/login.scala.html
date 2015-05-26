@@ -1,11 +1,15 @@
+@(loginForm: Form[Employees])
+
+@import helper._
 
         @common("ログイン画面"){
-           <h1>ログイン画面</h1>
 
+             @form(routes.Authentication.authenticate) {
+    <h1>ログイン画面</h1>
+    @inputText(loginForm("emp_id"))
+    @inputPassword(loginForm("password"))
     <p>
-        社員ID: <input type="text" name="ID" />
-        パスワード<input type="text" name="pass"/>
+      <button type="submit">ログイン</button>
     </p>
-             <input type="submit" value="ログイン" />
-</form>
+  }
            }

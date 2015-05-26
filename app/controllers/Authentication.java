@@ -6,7 +6,11 @@ import views.html.authentication.*;
 public class Authentication extends Controller {
 
 	public static Result login() {
-        return ok(login.render(Form.form(Employees.class)));
+		return ok(login.render(Form.form(Employees.class)));
+		if(session(emp_id)==null){
+        	return ok(login.render(Form.form(Employees.class)));
+		}
+		return ok(index.render(Thanks.find.byId(session(emp_id)));
     }
 
     public static Result authenticate() {
@@ -16,6 +20,10 @@ public class Authentication extends Controller {
         }
         session().clear();
         session("login", loginForm.get().emp_id);
-        return ok(index.render(Thanks.find.byId(session(userid)));
+        return ok(index.render(Thanks.find.byId(session(emp_id)));
+    }
+    public static Result thanks() {
+
+        return ok(thanks.render());
     }
 }
