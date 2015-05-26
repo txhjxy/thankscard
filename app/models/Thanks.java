@@ -21,12 +21,13 @@ public class Thanks extends Model {
 
 	public String tnk_contents;
 	@ManyToOne
+	@JoinColumn(name = "category_id")
 	public Categories category_id;
 	@ManyToOne
 	@JoinColumn(name = "ywk_id")
 	public Employees emp_id2;
 
-	public Date tnk_date;
+	public Integer tnk_date;
 
 	public Integer tnk_point;
 }
