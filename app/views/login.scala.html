@@ -1,13 +1,11 @@
 
-
         @common("ログイン画面"){
-
-             @form(routes.Authentication.authenticate) {
-    <h1>ログイン画面</h1>
-    @inputText(loginForm("emp_id"))
-    @inputPassword(loginForm("password"))
+           <h1>ログイン画面</h1>
+<form>
     <p>
-      <button type="submit">ログイン</button>
+        社員ID: <input type="text" name="ID" />
+        パスワード<input type="text" name="pass"/>
     </p>
-  }
-           }
+             <input type="submit" value="ログイン" />
+</form>
+}

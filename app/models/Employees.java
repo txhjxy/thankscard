@@ -23,16 +23,6 @@ public class Employees extends Model {
 
 	public Integer job_id;
 
-	public String validate() {
-		if (authenticate(emp_id, password)) {
-			return null;
-		}
-		return "IDまたはパスワードが違います";
-	}
 
-	private Boolean authenticate(String name, String password) {
-		User user = find.where().eq("name", name).eq("password", password).findUnique();
-		return (user != null);
-	}
 
 }
