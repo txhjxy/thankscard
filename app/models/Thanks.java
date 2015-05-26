@@ -30,4 +30,8 @@ public class Thanks extends Model {
 	public Integer tnk_date;
 
 	public Integer tnk_point;
+
+	public static Finder<Integer, Thanks> find = new Finder<Integer, Thanks>(
+			Integer.class, Thanks.class
+			);
 }

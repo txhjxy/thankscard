@@ -8,8 +8,9 @@ import views.html.*;
 public class Application extends Controller {
 
 	public static Result index() {
-		Thanks tnk=Thanks.find.where().eq(emp_id,session(tnk_id)).orderBy("tnk_date desc").findList();
-		return ok(index.render(tnk.get(0)));
+		//List<Thanks> tnk=Thanks.find.where().eq(tnk_id,1).orderBy("tnk_date desc").findList();
+		//return ok(index.render(tnk.get(0)));
+		return ok(index.render());
 	}
 
 	public static Result changepass(){
