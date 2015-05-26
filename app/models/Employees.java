@@ -25,6 +25,8 @@ public class Employees extends Model {
 
 	public Integer job_id;
 
-
+	public static Finder<Integer, Employees> find = new Finder<Integer, Employees>(
+			Integer.class, Employees.class
+			);
 
 }
