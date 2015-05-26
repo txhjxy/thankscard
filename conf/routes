@@ -5,13 +5,13 @@
 # Home page
 GET     /                           controllers.Application.index()
 
-GET     /login       controllers.Authentication.index()
+GET     /login       controllers.Authentication.login()
 POST    /login       controllers.Authentication.authenticate()
 
 GET     /logout      controllers.Authentication.logout()
 
-GET     /password       controllers.Authentication.changepass()
-POST    /password       controllers.Authentication.changepass()
+GET     /password       controllers.ChangePassword.index()
+POST    /password       controllers.ChangePassword.changepass()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

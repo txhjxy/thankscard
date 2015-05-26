@@ -17,17 +17,18 @@ public class Authentication extends Controller {
 		}
 
 		private Boolean authenticate(String userid, String password) {
+			//modelで認証する(authenticateメソッドを作る)
 			return Employees.authenticate(userid, password);
 		}
 	}
 
 	public static Form<Login> loginForm = Form.form(Login.class);
 
-	public static Result index() {
+	public static Result login() {
 		if (session("login") != null) {
 			return ok("あなたは既にログインしています");
 		}
-		return ok(index.render(loginForm));
+		return ok(login.render(loginForm));
 	}
 	public static Result authenticate() {
 		Form<Login> form = loginForm.bindFromRequest();
