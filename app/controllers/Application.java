@@ -41,9 +41,7 @@ public class Application extends Controller {
 	public static Result example() {
 		return ok(example.render());
 	}
-	public static Result thanks() {
-		return ok(thanks.render());
-	}
+
 	public static Result detail() {
 		return ok(detail.render());
 	}
