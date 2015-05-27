@@ -14,4 +14,8 @@ public class Departments extends Model {
 
     public String dept_name;
 
+	public static Finder<Integer, Departments> find = new Finder<Integer, Departments>(
+			Integer.class, Departments.class
+			);
+
 }

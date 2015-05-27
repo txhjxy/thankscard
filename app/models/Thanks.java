@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import play.data.validation.Constraints.*;
+
 import play.db.ebean.Model;
 @Entity
 public class Thanks extends Model {
