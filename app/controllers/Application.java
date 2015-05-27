@@ -8,12 +8,12 @@ import views.html.*;
 public class Application extends Controller {
 
 	public static Result index() {
-		Thanks tnk=Thanks.find.where().eq(emp_id,session(tnk_id)).orderBy("tnk_date desc").findList();
-		return ok(index.render(tnk.get(0)));
+		//List<Thanks> tnk=Thanks.find.where().eq(tnk_id,1).orderBy("tnk_date desc").findList();
+		//return ok(index.render(tnk.get(0)));
+		return ok(index.render());
 	}
 
 	public static Result changepass(){
-
 		return ok("新しいパスワードと確認用パスワードが違います");
 	}
 	public static Result password() {
@@ -40,13 +40,17 @@ public class Application extends Controller {
 	public static Result example() {
 		return ok(example.render());
 	}
-	public static Result thanks() {
-		return ok(thanks.render());
-	}
+
 	public static Result detail() {
 		return ok(detail.render());
 	}
+	public static Result thanks() {
+		return ok(thanks.render());
+	}
 
+	public static Result addthanks(){
+		return ok(thanks.render());
+	}
 
 
 }

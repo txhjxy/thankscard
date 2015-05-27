@@ -21,6 +21,7 @@ GET     /createmp       controllers.Application.createmp()
 GET     /detail       controllers.Application.detail()
 GET     /example       controllers.Application.example()
 GET     /thanks       controllers.Application.thanks()
+POST    /thanks       controllers.Application.addthanks()
 
 
 # Map static resources from the /public folder to the /assets URL path
