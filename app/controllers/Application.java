@@ -4,7 +4,7 @@ import play.*;
 import play.mvc.*;
 
 import views.html.*;
-
+import models.Employees;
 import models.Thanks;
 import models.Departments;
 import models.Categories;
@@ -15,7 +15,7 @@ import play.data.Form;
 public class Application extends Controller {
 
 	public static Result index() {
-		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","2").orderBy("tnk_date desc").findList();
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","1").orderBy("tnk_date desc").findList();
 		return ok(index.render(tnk.get(0)));
 	}
 
@@ -73,5 +73,4 @@ public class Application extends Controller {
         session("emp_name", loginForm.get().emp_name);
         return redirect(routes.Application.index());
     }
-}
 }

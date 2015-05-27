@@ -8,13 +8,15 @@
   <title>Login</title>
 </head>
 <body>
+
   @form(routes.Application.authenticate) {
-    <h1>Sign in</h1>
+    <h1>ログイン画面</h1>
     @inputText(loginForm("emp_name"))
-    @inputPassword(loginForm("password"))
+   @inputPassword(loginForm("password"))
     <p>
       <button type="submit">Login</button>
     </p>
+
   }
 </body>
 </html>

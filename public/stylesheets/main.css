@@ -1,0 +1,6 @@
+.classA{width:200px;height:100px;float : right;}
+.menu{border:solid;padding: 10px 1px 10px 20px;width:400px;}
+#new{border:solid;padding: 20px 10px 10px 10px;width:400px;
+     position:absolute;top:80px;left:500px;width:200px;height:300px;
+     }
+ .list li{margin-bottom:10px;}

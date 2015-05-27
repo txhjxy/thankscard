@@ -4,24 +4,38 @@
            <h1>メインページ</h1>
 
 
-
+        <p>
+        <div class="menu">
          ユーザーページ<br>
            <li><a href="@routes.Application.thanks()">感謝カード入力</a><br></li>
            <li><a href="@routes.Application.board()">掲示板</a><br></li>
            <li><a href="@routes.Application.cardview()">受け取った感謝カード</a><br></li>
            <li><a href="@routes.Application.password()">パスワード変更</a></li>
-
+        </div>
         </p>
+        <p>
+         <div id="new">
+        新着情報:<br>
 @thanks.help_contents
-        <p>
+         </div>
+         </p>
+         <p>
+         <div class="menu" >
+
         経営者ページ<br>
-        </p>
           <li><a href="@routes.Application.example()">代表的な感謝カード一覧</a></li>
+        </div>
+        </p>
+
         <p>
+        <div class="menu">
+
         人事ページ<br>
          <li><a href="@routes.Application.createmp()">社員情報登録</a><br></li>
          <li><a href="@routes.Application.changemp()">社員情報変更</a><br></li>
          <li><a href="@routes.Application.category()">カテゴリ登録・追加</a></li>
+
+        </div>
         </p>
 
         <a href="@routes.Application.login()">ログアウト</a>
