@@ -14,7 +14,6 @@ public class Application extends Controller {
 	}
 
 	public static Result changepass(){
-
 		return ok("新しいパスワードと確認用パスワードが違います");
 	}
 	public static Result password() {
@@ -45,7 +44,13 @@ public class Application extends Controller {
 	public static Result detail() {
 		return ok(detail.render());
 	}
+	public static Result thanks() {
+		return ok(thanks.render());
+	}
 
+	public static Result addthanks(){
+		return ok(thanks.render());
+	}
 
 
 }
