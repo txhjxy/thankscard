@@ -5,12 +5,14 @@ import play.mvc.*;
 
 import views.html.*;
 
+import models.Thanks;
+import java.util.*;
+
 public class Application extends Controller {
 
 	public static Result index() {
-		//List<Thanks> tnk=Thanks.find.where().eq(tnk_id,1).orderBy("tnk_date desc").findList();
-		//return ok(index.render(tnk.get(0)));
-		return ok(index.render());
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","2").orderBy("tnk_date desc").findList();
+		return ok(index.render(tnk.get(0)));
 	}
 
 	public static Result changepass(){
