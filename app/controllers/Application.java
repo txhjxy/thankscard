@@ -60,4 +60,18 @@ public class Application extends Controller {
 		newThanks.save();
 		return ok("登録されました");
 	}
+	public static Result login() {
+        return ok(login.render(Form.form(Employees.class)));
+    }
+
+    public static Result authenticate() {
+        Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
+        if (loginForm.hasErrors()) {
+            return badRequest(login.render(loginForm));
+        }
+        session().clear();
+        session("emp_name", loginForm.get().emp_name);
+        return redirect(routes.Application.index());
+    }
+}
 }
