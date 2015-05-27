@@ -1,23 +1,34 @@
+@(deptList: List[Departments],categoryList: List[Categories])
+
 @common("掲示板"){
+
 
   <h1>感謝カード入力</h1>
 
+	<form action="@routes.Application.creatthanks()" method="POST">
     <p>
-     助けた方の部署　助けた方の名前<br>
+     助けた方の部署<SELECT name="dept_id" required>
+          @for(dept <- deptList) {
+       <OPTION value="@(dept.dept_id)">@(dept.dept_name)</OPTION>}</SELECT>
+       　助けた方の名前<INPUT size="20" type="text" name="ywk_id" required><br>
     </p>
       してもらったこと<br>
      <p>
-      <TEXTAREA cols="30" rows="8"></TEXTAREA>
+      <TEXTAREA name="help_contents" cols="30" rows="8" required></TEXTAREA>
      </p>
 
-     カテゴリ　　感謝度<br>
+     カテゴリ<SELECT name="category_id" required>
+          @for(category <- categoryList) {
+       <OPTION value="@(category.category_id)">@(category.category_name)</OPTION>}</SELECT>　　感謝度
+       <input type="number" min ="1" max="10" name="tnk_point" required><br>
       <p>
      感謝の言葉<br>
-      <TEXTAREA cols="30" rows="8"></TEXTAREA>
+      <TEXTAREA name="tnk_contents" cols="30" rows="8" required></TEXTAREA>
      </p>
-     日付<INPUT size="20" type="text" value="0" name="atai"><br>
+     日付<INPUT size="20" type="date" value="0" name="tnk_date" required><br>
      <p>
-       <input type="submit" value="登録" />
+     <input type="submit" value="登録" />
+     </form>
        <a href="@routes.Application.index()">キャンセル</a>
 
 

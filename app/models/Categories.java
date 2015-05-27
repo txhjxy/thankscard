@@ -14,4 +14,9 @@ public class Categories extends Model {
 
     public String category_name;
 
+	public static Finder<Integer, Categories> find = new Finder<Integer, Categories>(
+			Integer.class, Categories.class
+			);
+
+
 }

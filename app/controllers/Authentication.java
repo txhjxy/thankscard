@@ -1,6 +1,12 @@
 package controllers;
 
-import play.data.Form;
+import play.*;
+import play.mvc.*;
+
+import views.html.*;
+
+import models.Thanks;
+import java.util.*;
 import play.mvc.*;
 
 import views.html.*;

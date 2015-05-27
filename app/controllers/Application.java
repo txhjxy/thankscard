@@ -5,12 +5,18 @@ import play.mvc.*;
 
 import views.html.*;
 
+import models.Thanks;
+import models.Departments;
+import models.Categories;
+import java.util.*;
+
+import play.data.Form;
+
 public class Application extends Controller {
 
 	public static Result index() {
-		//List<Thanks> tnk=Thanks.find.where().eq(tnk_id,1).orderBy("tnk_date desc").findList();
-		//return ok(index.render(tnk.get(0)));
-		return ok(index.render());
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","2").orderBy("tnk_date desc").findList();
+		return ok(index.render(tnk.get(0)));
 	}
 
 	public static Result changepass(){
@@ -45,12 +51,13 @@ public class Application extends Controller {
 		return ok(detail.render());
 	}
 	public static Result thanks() {
-		return ok(thanks.render());
+		List<Departments> dept=Departments.find.all();
+		List<Categories> category=Categories.find.all();
+		return ok(thanks.render(dept,category));
 	}
-
-	public static Result addthanks(){
-		return ok(thanks.render());
+	public static Result creatthanks() {
+		Thanks newThanks = Form.form(Thanks.class).bindFromRequest().get();
+		newThanks.save();
+		return ok("登録されました");
 	}
-
-
 }
