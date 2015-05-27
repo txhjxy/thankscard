@@ -5,16 +5,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>ログイン画面</title>
 </head>
 <body>
 
   @form(routes.Application.authenticate) {
     <h1>ログイン画面</h1>
-    @inputText(loginForm("emp_name"))
-   @inputPassword(loginForm("password"))
+    <hr>
+    @inputText(loginForm("emp_name"), '_label -> "名前")
+   @inputPassword(loginForm("password"), '_label -> "パスワード")
     <p>
-      <button type="submit">Login</button>
+      <button type="submit">ログイン</button>
+      <button type="submit">リセット</button>
     </p>
 
   }
