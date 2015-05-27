@@ -1,12 +1,20 @@
+@(loginForm: Form[Employees])
+@import helper._
 
-        @common("ログイン画面"){
-           <h1>ログイン画面</h1>
-<form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  @form(routes.Application.authenticate) {
+    <h1>Sign in</h1>
+    @inputText(loginForm("emp_name"))
+    @inputPassword(loginForm("password"))
     <p>
-        社員ID: <input type="text" name="ID" />
-        パスワード<input type="Password" name="pass"/>
+      <button type="submit">Login</button>
     </p>
-             <input type="submit" value="ログイン" />
-             <input type="submit" value="リセット" />
-</form>
-}
+  }
+</body>
+</html>
