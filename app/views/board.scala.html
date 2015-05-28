@@ -4,7 +4,7 @@
    感謝される人<br>
    部署名<SELECT name="dept_id">
    		 @for(dept <- deptList){
-         <OPTION value="dept_id">@(dept.dept_id)</OPTION>}</SELECT>
+         <OPTION value="dept_id">@(dept.dept_name)</OPTION>}</SELECT>
    名前<SELECT name="ywk_id">
        <OPTION value="ywk_id">金城</OPTION></SELECT>
    日付<input type="date" name="example1">
@@ -21,9 +21,10 @@
 </form>
 <p>
       <table border=1>
+
       <tr><th></th><th colspan=2>感謝された人</th><th></th><th></th><th colspan=2>感謝した人</th></tr>
       <tr><th>日付</th><th>部署名</th><th>名前</th><th>してもらったこと</th><th>感謝の言葉</th><th>部署名</th><th>名前</th></tr>
-      <tr><td>2015/5/3</td><td>システム開発</td><td>新垣</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>@for(thanks <- thanksList){</td><td>@thanks.name</td><td>新垣</td><td></td><td></td><td></td><td></td></tr>
       <tr><td>行-2</td><td>A-2</td><td>B-2</td><td></td><td></td><td></td><td></td></tr>
       <tr><td>行-3</td><td>A-3</td><td>B-3</td><td></td><td></td><td></td><td></td></tr>
       </table>
