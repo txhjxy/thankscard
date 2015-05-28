@@ -29,7 +29,8 @@ public class Application extends Controller {
 	public static Result board() {
 		List<Thanks> thanksList = Thanks.find.all();
 		List<Departments> dept=Departments.find.all();
-		return ok(board.render(thanksList,dept));
+		return ok(board.render(thanksList));
+		return ok(board.render(dept));
 	}
 	public static Result cardview() {
 		return ok(cardview.render());
@@ -57,7 +58,7 @@ public class Application extends Controller {
 		List<Departments> dept=Departments.find.all();
 		List<Categories> category=Categories.find.all();
 		return ok(thanks.render(dept,category));
-		
+
 	}
 	public static Result creatthanks() {
 		Form<Thanks> thanksForm = Form.form(Thanks.class).bindFromRequest();
