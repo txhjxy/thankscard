@@ -1,7 +1,10 @@
+@(thanksList: List[Thanks],deptList: List[Departments])
+
 @common("掲示板"){
    感謝される人<br>
    部署名<SELECT name="dept_id">
-         <OPTION value="dept_id">営業</OPTION></SELECT>
+    @for(dept <- deptList) {
+         <OPTION value="@(dept.dept_id)">@dept.dept_id</OPTION>}</SELECT>
    名前<SELECT name="ywk_id">
        <OPTION value="ywk_id">金城</OPTION></SELECT>
    日付<input type="date" name="example1">
