@@ -56,6 +56,7 @@ public class Application extends Controller {
 		List<Departments> dept=Departments.find.all();
 		List<Categories> category=Categories.find.all();
 		return ok(thanks.render(dept,category));
+		return ok(borad.render(dept));
 	}
 	public static Result creatthanks() {
 		Form<Thanks> thanksForm = Form.form(Thanks.class).bindFromRequest();
