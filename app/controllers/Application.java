@@ -59,10 +59,10 @@ public class Application extends Controller {
 	public static Result creatthanks() {
 		Form<Thanks> thanksForm = Form.form(Thanks.class).bindFromRequest();
 		Thanks newThanks = new Thanks();
-		Departments dept=Departments.find.where().eq("dept_id", "thanksForm.get().dept_id").findList().get(0);
+		/*Departments dept=Departments.find.where().eq("dept_id", "thanksForm.get().dept_id").findList().get(0);
 		Employees emp=Employees.find.where().eq("emp_name", "thanksForm.get().ywk_name")
 		.eq("dept","dept_id").findList().get(0);
-		newThanks.emp2_id=emp;
+		newThanks.emp2_id=emp;*/
 		newThanks.help_contents=thanksForm.get().help_contents;
 		newThanks.category_id=thanksForm.get().category_id;
 		newThanks.tnk_point=thanksForm.get().tnk_point;
