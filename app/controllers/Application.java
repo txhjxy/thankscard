@@ -27,7 +27,8 @@ public class Application extends Controller {
 		return ok(changepass.render());
 	}
 	public static Result board() {
-		return ok(board.render());
+		List<Thanks> thanksList = Thanks.find.all();
+		return ok(board.render(thanksList));
 	}
 	public static Result cardview() {
 		return ok(cardview.render());
