@@ -29,7 +29,7 @@ public class Thanks extends Model {
 	@JoinColumn(name = "ywk_id")
 	public Employees emp_id2;
 
-	public Integer tnk_date;
+	public Date tnk_date;
 
 	public Integer tnk_point;
 

@@ -31,7 +31,7 @@ create table thanks (
   tnk_contents              varchar(255),
   category_id               integer,
   ywk_id                    integer,
-  tnk_date                  integer,
+  tnk_date                  timestamp,
   tnk_point                 integer,
   constraint pk_thanks primary key (tnkcard_id))
 ;

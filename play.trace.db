@@ -2,3 +2,99 @@
 org.h2.jdbc.JdbcSQLException: テーブル "PLAY_EVOLUTIONS" が見つかりません
 Table "PLAY_EVOLUTIONS" not found; SQL statement:
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-175]
+05-28 11:11:40 jdbc[28]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "
+Syntax error in SQL statement "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where String.valueOf(t0.emp_id) = ?  [42000-175]
+05-28 11:13:14 jdbc[35]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "
+Syntax error in SQL statement "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where String.valueOf(t0.emp_id) = ?  [42000-175]
+05-28 11:16:13 jdbc[42]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "
+Syntax error in SQL statement "SELECT T0.EMP_ID C0, T0.EMP_NAME C1, T0.PASSWORD C2, T0.JOB_ID C3, T0.DEPT_ID C4 FROM EMPLOYEES T0 WHERE STRING.VALUEOF([*]T0.EMP_ID) = ?  "; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where String.valueOf(t0.emp_id) = ?  [42000-175]
+05-28 11:49:40 jdbc[80]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "ctg"
+Data conversion error converting "ctg"; SQL statement:
+select t0.category_id c0, t0.category_name c1 from categories t0 where t0.category_id = ?  [22018-175]
+05-28 11:50:19 jdbc[87]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "num"
+Data conversion error converting "num"; SQL statement:
+select t0.category_id c0, t0.category_name c1 from categories t0 where t0.category_id = ?  [22018-175]
+05-28 11:55:44 jdbc[94]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "num"
+Data conversion error converting "num"; SQL statement:
+select t0.category_id c0, t0.category_name c1 from categories t0 where t0.category_id = ?  [22018-175]
+05-28 13:24:18 jdbc[159]: exception
+org.h2.jdbc.JdbcSQLException: "TIMESTAMP" 定数 "20150527" を解析できません
+Cannot parse "TIMESTAMP" constant "20150527"; SQL statement:
+INSERT INTO "PUBLIC"."THANKS"("TNKCARD_ID","TNK_ID","HELP_CONTENTS","TNK_CONTENTS","CATEGORY_ID","YWK_ID","TNK_DATE","TNK_POINT")VALUES(?,?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8) [22007-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:161)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:87)
+	at org.h2.value.Value.convertTo(Value.java:843)
+	at org.h2.table.Column.convert(Column.java:145)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:154)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:140)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:320)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2893)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1031)
+	at org.h2.server.web.WebApp.process(WebApp.java:225)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:168)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 20150527
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:270)
+	at org.h2.value.ValueTimestamp.parseTry(ValueTimestamp.java:105)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:85)
+	... 16 more
+05-28 13:24:18 jdbc[159]: exception
+org.h2.jdbc.JdbcSQLException: "TIMESTAMP" 定数 "20150527" を解析できません
+Cannot parse "TIMESTAMP" constant "20150527"; SQL statement:
+INSERT INTO "PUBLIC"."THANKS"("TNKCARD_ID","TNK_ID","HELP_CONTENTS","TNK_CONTENTS","CATEGORY_ID","YWK_ID","TNK_DATE","TNK_POINT")VALUES(?,?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8) [22007-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:161)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:87)
+	at org.h2.value.Value.convertTo(Value.java:843)
+	at org.h2.table.Column.convert(Column.java:145)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:154)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:140)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:320)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2893)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1031)
+	at org.h2.server.web.WebApp.process(WebApp.java:225)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:168)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 20150527
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:270)
+	at org.h2.value.ValueTimestamp.parseTry(ValueTimestamp.java:105)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:85)
+	... 16 more
+05-28 14:07:06 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "兼島　大佑"
+Data conversion error converting "兼島　大佑"; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where t0.emp_name = ?  and t0.dept_id = ?  [22018-175]
+05-28 14:07:47 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "兼島　大佑"
+Data conversion error converting "兼島　大佑"; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where t0.emp_name = ?  and t0.dept_id = ?  [22018-175]
+05-28 14:50:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "DELETE *[*] THANKS "; 期待されるステートメント "identifier"
+Syntax error in SQL statement "DELETE *[*] THANKS "; expected "identifier"; SQL statement:
+delete * thanks [42001-175]
+05-28 15:28:32 jdbc[31]: exception
+org.h2.jdbc.JdbcSQLException: データ変換中にエラーが発生しました "兼島　大佑"
+Data conversion error converting "兼島　大佑"; SQL statement:
+select t0.emp_id c0, t0.emp_name c1, t0.password c2, t0.job_id c3, t0.dept_id c4 from employees t0 where t0.emp_id = ?  and t0.dept_id = ?  [22018-175]

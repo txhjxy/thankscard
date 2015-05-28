@@ -2,6 +2,8 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.data.DynamicForm;
+import play.data.Form;
 
 import views.html.*;
 
@@ -10,8 +12,8 @@ import models.Thanks;
 import models.Departments;
 import models.Categories;
 import java.util.*;
-
-import play.data.Form;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class Application extends Controller {
 
@@ -57,33 +59,42 @@ public class Application extends Controller {
 		return ok(thanks.render(dept,category));
 	}
 	public static Result creatthanks() {
-		Form<Thanks> thanksForm = Form.form(Thanks.class).bindFromRequest();
-		Thanks newThanks = new Thanks();
-		Departments dept=Departments.find.where().eq("dept_id", "thanksForm.get().dept_id").findList().get(0);
-		Employees emp=Employees.find.where().eq("emp_name", "thanksForm.get().ywk_name")
-		.eq("dept","dept_id").findList().get(0);
-		newThanks.emp2_id=emp;
-		newThanks.help_contents=thanksForm.get().help_contents;
-		newThanks.category_id=thanksForm.get().category_id;
-		newThanks.tnk_point=thanksForm.get().tnk_point;
-		newThanks.tnk_contents=thanksForm.get().tnk_contents;
-		newThanks.tnk_date=thanksForm.get().tnk_date;
-		Employees emp2=Employees.find.all().get(0);
-		newThanks.emp_id=emp2;
+		Thanks newThanks =new Thanks();
+		String[] params = { "dept_id","emp_","help_contents","category_id",
+				"tnk_point","tnk_contents","tnk_date"};
+		DynamicForm input = Form.form();
+		input = input.bindFromRequest(params);
+		newThanks.help_contents = input.data().get("help_contents");
+		Integer num=Integer.parseInt(input.data().get("category_id"));
+		newThanks.category_id = Categories.find.where().eq("category_id", num).findList().get(0);
+		newThanks.tnk_point = Integer.parseInt(input.data().get("tnk_point"));
+		newThanks.tnk_contents = input.data().get("tnk_contents");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			newThanks.tnk_date = format.parse(input.data().get("tnk_date"));
+		} catch (ParseException e) {
+			return ok("もう一度入力してください");
+		}
+		num=Integer.parseInt(input.data().get("dept_id"));
+		Departments dept=Departments.find.where().eq("dept_id", num).findList().get(0);
+		Employees emp=Employees.find.where().eq("emp_name", input.data().get("emp_name"))
+				.eq("dept_id",dept).findList().get(0);
+		newThanks.emp_id2 =emp;
+		newThanks.emp_id=Employees.find.all().get(0);
 		newThanks.save();
-		return ok("登録されました");
+		return redirect(routes.Application.index());
 	}
 	public static Result login() {
-        return ok(login.render(Form.form(Employees.class)));
-    }
+		return ok(login.render(Form.form(Employees.class)));
+	}
 
-    public static Result authenticate() {
-        Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
-        if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
-        }
-        session().clear();
-        session("emp_id", loginForm.get().emp_name);
-        return redirect(routes.Application.index());
-    }
+	public static Result authenticate() {
+		Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
+		if (loginForm.hasErrors()) {
+			return badRequest(login.render(loginForm));
+		}
+		session().clear();
+		session("emp_id", loginForm.get().emp_name);
+		return redirect(routes.Application.index());
+	}
 }
