@@ -29,8 +29,7 @@ public class Application extends Controller {
 	public static Result board() {
 		List<Thanks> thanksList = Thanks.find.all();
 		List<Departments> dept=Departments.find.all();
-		return ok(board.render(thanksList));
-		return ok(board.render(dept));
+		return ok(board.render(thanksList,dept));
 	}
 	public static Result cardview() {
 		return ok(cardview.render());
