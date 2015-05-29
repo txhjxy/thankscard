@@ -18,7 +18,7 @@ import java.text.ParseException;
 public class Application extends Controller {
 
 	public static Result index() {
-		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","1").orderBy("tnk_date desc").findList();
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","aaa@abc.jp").orderBy("tnk_date desc").findList();
 		return ok(index.render(tnk.get(0)));
 	}
 
@@ -96,7 +96,12 @@ public class Application extends Controller {
 			return badRequest(login.render(loginForm));
 		}
 		session().clear();
-		session("emp_id", loginForm.get().emp_name);
+		session("emp_id", loginForm.get().emp_id);
 		return redirect(routes.Application.index());
+	}
+
+	public static Result logout() {
+		session().clear();
+		return ok(login.render(Form.form(Employees.class)));
 	}
 }
