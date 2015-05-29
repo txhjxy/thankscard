@@ -1,17 +1,18 @@
-@(thanksList: List[Thanks],deptList: List[Departments])
+@(thanksList: List[Thanks],Employees: List[Employees])
 
 @common("掲示板"){
    感謝される人<br>
    部署名<SELECT name="dept_id">
-    @for(dept <- deptList) {
-         <OPTION value="@(dept.dept_id)">@dept.dept_id</OPTION>}</SELECT>
+    @for(employees <- Employees) {
+         <OPTION value="@(employees.dept_id.dept_name)">@employees.dept_id.dept_name</OPTION>}</SELECT>
    名前<SELECT name="ywk_id">
        <OPTION value="ywk_id">金城</OPTION></SELECT>
    日付<input type="date" name="example1">
    <input type="checkbox" />感謝度並び替え<br>
    感謝した人<br>
    部署名<SELECT name="dept_id">
-         <OPTION value="dept_id">営業</OPTION></SELECT>
+   @for(employees <- Employees) {
+         <OPTION value="@(employees.dept_id.dept_name)">@employees.dept_id.dept_name</OPTION>}</SELECT>
    名前<SELECT name="tnk_id">
        <OPTION value="tnk_id">金城</OPTION></SELECT><br>
 
@@ -37,17 +38,17 @@
       	<th>部署名</th>
       	<th>名前</th>
       </tr>
-      <tr>
       @for(thanks <- thanksList){
+      <tr>
       	<td>@thanks.tnk_date</td>
-      	<td>部署名</td>
+      	<td>@thanks.emp_id.dept_id.dept_name</td>
       	<td>@thanks.emp_id.emp_name</td>
       	<td>@thanks.help_contents</td>
       	<td>@thanks.tnk_contents</td>
-      	<td>部署名</td>
-      	<td>@thanks.emp_id2.emp_name</td>
-      	}
+      	<td>@thanks.emp_id.dept_id.dept_name</td>
+      	<td>@thanks.emp_id.emp_name</td>
       </tr>
+      }
       </table>
     </p>
 
