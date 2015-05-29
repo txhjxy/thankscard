@@ -37,7 +37,9 @@ public class Application extends Controller {
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result cardview() {
-		return ok(cardview.render());
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
+
+		return ok(cardview.render(tnk));
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result changemp() {
@@ -45,7 +47,9 @@ public class Application extends Controller {
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result example() {
-		return ok(example.render());
+		List<Thanks> thanksList = Thanks.find.orderBy("tnk_point desc").findList();
+		List<Departments> dept=Departments.find.all();
+		return ok(example.render(thanksList,dept));
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result detail() {
