@@ -40,10 +40,6 @@ public class Application extends Controller {
 		return ok(cardview.render());
 	}
 	@Security.Authenticated(Secured.class)
-	public static Result category() {
-		return ok(category.render());
-	}
-	@Security.Authenticated(Secured.class)
 	public static Result changemp() {
 		return ok(changemp.render());
 	}
@@ -106,3 +102,4 @@ public class Application extends Controller {
 		return ok(login.render(Form.form(Employees.class)));
 	}
 }
+
