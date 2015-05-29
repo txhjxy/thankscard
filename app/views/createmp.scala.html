@@ -1,13 +1,19 @@
  @common("社員情報登録画面"){
      <h1>社員情報登録</h1>
 
-
-社員名: <input type="text" name="ID" /><br>
-部署名<br>
-パスワード<input type="text" name="pass"/><br>
-<input type="submit" value="登録" />
-<input type="submit" value="リセット" />
-<a href="@routes.Application.index()">メニューへ戻る</a>
+ <div class="syain">
+ <p>
+   社員名 <input type="text" name="ID" /><br>
+   部署名<SELECT name="dept_id">
+      <OPTION value="営業">
+      </OPTION></SELECT><br>
+   パスワード<input type="text" name="pass"/><br>
+   メールアドレス <input type="text" name="ID" /><br>
+  </p>
+  </div>
+ <input type="submit" value="登録" />
+ <input type="submit" value="リセット" />
+ <a href="@routes.Application.index()">メニューへ戻る</a>
 
 
 
