@@ -1,9 +1,13 @@
+@(emp:Employees)
+
  @common("社員情報登録完了画面"){
    <h1>社員情報登録完了</h1>
     <p>
-     社員ID<br>
-     パスワード<br>
-     社員名<br>
+     社員名 @emp.emp_name<br>
+     部門名 @emp.dept_id.dept_name<br>
+     メールアドレス @emp.emp_id<br>
+     パスワード @emp.password<br>
+
     </p>
      <a href="@routes.Application.index()">メインページへ戻る</a>
 

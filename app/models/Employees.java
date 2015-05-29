@@ -33,8 +33,8 @@ public class Employees extends Model {
 
 	public Integer job_id;
 
-	  public static Finder<Long, Employees> find = new Finder<Long,Employees>(
-			    Long.class, Employees.class
+	  public static Finder<String, Employees> find = new Finder<String,Employees>(
+			    String.class, Employees.class
 			  );
 
 	  public String validate() {
