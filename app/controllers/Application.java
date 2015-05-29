@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
 public class Application extends Controller {
-
+	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
 		if(tnk.size()==0){
@@ -34,8 +34,8 @@ public class Application extends Controller {
 	}
 	public static Result board() {
 		List<Thanks> thanksList = Thanks.find.all();
-		List<Departments> dept=Departments.find.all();
-		return ok(board.render(thanksList,dept));
+		List<Employees> employees=Employees.find.all();
+		return ok(board.render(thanksList,employees));
 	}
 	public static Result cardview() {
 		return ok(cardview.render());
