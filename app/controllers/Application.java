@@ -18,8 +18,12 @@ import java.text.ParseException;
 public class Application extends Controller {
 
 	public static Result index() {
-		List<Thanks> tnk=Thanks.find.where().eq("tnk_id","1").orderBy("tnk_date desc").findList();
+		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
+		if(tnk.size()==0){
+		return ok(index.render(Thanks.find.byId(0)));
+		}else{
 		return ok(index.render(tnk.get(0)));
+		}
 	}
 
 	public static Result changepass(){
