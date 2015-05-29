@@ -6,10 +6,10 @@
 
 	<form action="@routes.Application.creatthanks()" method="POST">
     <p>
-     助けた方の部署<SELECT name="dept_id" required>
+     助けてもらった方の部署<SELECT name="dept_id" required>
           @for(dept <- deptList) {
        <OPTION value="@(dept.dept_id)">@(dept.dept_name)</OPTION>}</SELECT>
-       　助けた方の名前<INPUT size="20" type="text" name="emp_name" required><br>
+       助けてもらった方の名前<INPUT size="20" type="text" name="emp_name" required><br>
     </p>
       してもらったこと<br>
      <p>
@@ -25,10 +25,10 @@
       <TEXTAREA name="tnk_contents" cols="30" rows="8" required></TEXTAREA>
      </p>
      日付<INPUT size="20" type="date" value="0" name="tnk_date" required><br>
-     <p>
-     <input type="submit" value="登録" />
      </form>
+     <div id=th>
+     <input type="submit" value="登録" />
        <a href="@routes.Application.index()">キャンセル</a>
+     </div>
 
-
-}
+     }
