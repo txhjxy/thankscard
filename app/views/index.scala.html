@@ -1,7 +1,18 @@
 @(thanks:Thanks)
 
 @common("メインページ"){
-           <h1>メインページ</h1>
+
+<script>
+function blind() {
+	if(1==1){
+		document.getElementById("new").style.display="block";
+	}else {
+		document.getElementById("new").style.display="none";
+	}
+}
+setInterval('blind()',1);
+</script>
+<h1>メインページ</h1>
 
 
         <p>
