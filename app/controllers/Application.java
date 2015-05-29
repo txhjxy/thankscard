@@ -48,14 +48,6 @@ public class Application extends Controller {
 		return ok(changemp.render());
 	}
 	@Security.Authenticated(Secured.class)
-	public static Result complete() {
-		return ok(complete.render());
-	}
-	@Security.Authenticated(Secured.class)
-	public static Result createmp() {
-		return ok(createmp.render());
-	}
-	@Security.Authenticated(Secured.class)
 	public static Result example() {
 		return ok(example.render());
 	}
