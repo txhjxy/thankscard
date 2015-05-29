@@ -96,7 +96,11 @@ public class Application extends Controller {
 			return badRequest(login.render(loginForm));
 		}
 		session().clear();
-		session("emp_id", loginForm.get().emp_name);
+		session("emp_id", loginForm.get().emp_id);
 		return redirect(routes.Application.index());
+	}
+	public static Result logout() {
+		session().clear();
+		return ok(login.render(Form.form(Employees.class)));
 	}
 }

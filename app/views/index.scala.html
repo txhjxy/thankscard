@@ -5,9 +5,9 @@
 <script>
 function blind() {
 	if(1==1){
-		document.getElementById("new").style.display="block";
-	}else {
-		document.getElementById("new").style.display="none";
+		document.getElementById("kei").style.display="block";
+	}else if(2==2) {
+		document.getElementById("jinn").style.display="block";
 	}
 }
 setInterval('blind()',1);
@@ -33,7 +33,7 @@ setInterval('blind()',1);
          </div>
          </p>
          <p>
-         <div class="menu" >
+         <div id="kei" class="menu" style="display: none;">
 
         経営者ページ<br>
          <ul class="list">
@@ -43,7 +43,7 @@ setInterval('blind()',1);
         </p>
 
         <p>
-        <div class="menu">
+        <div id="jinn" class="menu" style="display: none;">
 
         人事ページ<br>
          <ul class="list">
@@ -54,6 +54,6 @@ setInterval('blind()',1);
         </div>
         </p>
 
-        <a href="@routes.Application.login()">ログアウト</a>
+        <a href="@routes.Application.logout()">ログアウト</a>
 
  }

@@ -16,7 +16,7 @@ create table departments (
 ;
 
 create table employees (
-  emp_id                    integer not null,
+  emp_id                    varchar(255) not null,
   emp_name                  varchar(255),
   dept_id                   integer,
   password                  varchar(255),
@@ -26,11 +26,11 @@ create table employees (
 
 create table thanks (
   tnkcard_id                integer not null,
-  tnk_id                    integer,
+  tnk_id                    varchar(255),
   help_contents             varchar(255),
   tnk_contents              varchar(255),
   category_id               integer,
-  ywk_id                    integer,
+  ywk_id                    varchar(255),
   tnk_date                  timestamp,
   tnk_point                 integer,
   constraint pk_thanks primary key (tnkcard_id))
