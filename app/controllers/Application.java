@@ -19,51 +19,57 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
-		if(tnk.size()==0){
-		return ok(index.render(Thanks.find.byId(0)));
-		}else{
 		return ok(index.render(tnk.get(0)));
-		}
 	}
-
+	@Security.Authenticated(Secured.class)
 	public static Result changepass(){
 		return ok("新しいパスワードと確認用パスワードが違います");
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result password() {
 		return ok(changepass.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result board() {
 		List<Thanks> thanksList = Thanks.find.all();
 		List<Employees> employees=Employees.find.all();
 		return ok(board.render(thanksList,employees));
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result cardview() {
 		return ok(cardview.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result category() {
 		return ok(category.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result changemp() {
 		return ok(changemp.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result complete() {
 		return ok(complete.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result createmp() {
 		return ok(createmp.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result example() {
 		return ok(example.render());
 	}
-
+	@Security.Authenticated(Secured.class)
 	public static Result detail() {
 		return ok(detail.render());
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result thanks() {
 		List<Departments> dept=Departments.find.all();
 		List<Categories> category=Categories.find.all();
 		return ok(thanks.render(dept,category));
 	}
+	@Security.Authenticated(Secured.class)
 	public static Result creatthanks() {
 		Thanks newThanks =new Thanks();
 		String[] params = { "dept_id","emp_","help_contents","category_id",
@@ -93,7 +99,7 @@ public class Application extends Controller {
 	public static Result login() {
 		return ok(login.render(Form.form(Employees.class)));
 	}
-
+	@Security.Authenticated(Secured.class)
 	public static Result authenticate() {
 		Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
