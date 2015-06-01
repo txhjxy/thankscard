@@ -1,4 +1,4 @@
-@(thanks:Thanks,user:Employees)
+@(thanks:Thanks,user:Employees,date:String)
 
 @common("メインページ"){
 
@@ -14,8 +14,8 @@ setInterval('blind()',1);
 function newinfo(){
 		document.open();
 		if(@(thanks.tnk_point)!=0){
-			document.write("新着情報：<br>送信者：@(thanks.emp_id2.emp_name)<br>")
-			document.write("日付：@(thanks.tnk_date)<br><br>感謝内容：@(thanks.help_contents)<br><br>感謝の言葉：@(thanks.tnk_contents)");
+			document.write("新着情報：<br>送信者：@(thanks.emp_id.emp_name)<br>")
+			document.write("日付：@(date)<br><br>感謝内容：@(thanks.help_contents)<br><br>感謝の言葉：@(thanks.tnk_contents)");
 		}else{
 			document.write("感謝カードが1枚もありません");
 		}
