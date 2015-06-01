@@ -19,7 +19,12 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
-		return ok(index.render(tnk.get(0)));
+		Employees emp=Employees.find.byId(session("emp_id"));
+		if(tnk.size()==0){
+			return ok(index.render(Thanks.find.byId(0),emp));
+		}else{
+			return ok(index.render(tnk.get(0),emp));
+		}
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result changepass(){
@@ -40,10 +45,6 @@ public class Application extends Controller {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
 
 		return ok(cardview.render(tnk));
-	}
-	@Security.Authenticated(Secured.class)
-	public static Result changemp() {
-		return ok(changemp.render());
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result example() {
@@ -84,14 +85,13 @@ public class Application extends Controller {
 		Employees emp=Employees.find.where().eq("emp_name", input.data().get("emp_name"))
 				.eq("dept_id",dept).findList().get(0);
 		newThanks.emp_id2 =emp;
-		newThanks.emp_id=Employees.find.all().get(0);
+		newThanks.emp_id=Employees.find.byId(session("emp_id"));
 		newThanks.save();
 		return redirect(routes.Application.index());
 	}
 	public static Result login() {
 		return ok(login.render(Form.form(Employees.class)));
 	}
-	@Security.Authenticated(Secured.class)
 	public static Result authenticate() {
 		Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
