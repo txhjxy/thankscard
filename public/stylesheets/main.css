@@ -10,7 +10,11 @@
  .list li{margin-bottom:10px;}
 
 /*  ŽÐˆõ“o˜^ */
- .list syain
+ .syain{line-height:30px;}
+ #create{width:600px;
+ border:1px solid #000;
+	margin:auto;}
+
 
 /*  ƒJƒeƒSƒŠ“o˜^ */
 .cate{margin:0px;padding10px;border:5px solid black;}
@@ -20,3 +24,4 @@
 #content{width:600px;
  border:1px solid #000;
 	margin:auto;}
+
