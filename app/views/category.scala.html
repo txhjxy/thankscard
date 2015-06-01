@@ -1,20 +1,10 @@
- @(cateList:List[Categories])
-
- @common("カテゴリ登録・変更画面"){
-     <h1>カテゴリ登録・変更</h1>
-     <h3>カテゴリ登録</h3>
+  @common("カテゴリ登録画面"){
+     <h1>カテゴリ登録</h1>
         <p><form action="@routes.Creatcategory.creatcategory()" method="POST">
-          カテゴリ名: <input type="text" name="ID" /><br>
+          カテゴリ名: <input type="text" name="category_name" /><br>
            <input type="submit" value="登録" /></form>
         </p>
-     <h3>カテゴリ名の変更</h3>
-        <p>
-          ・既存のカテゴリ<SELECT name="category_id" required>
-          @for(cate <- cateList) {
-       <OPTION value="@(cate.category_id)">@(cate.category_name)</OPTION>}</SELECT><br>
-          ・変更したカテゴリ: <input type="text" name="ID" /><br>
-           <input type="submit" value="変更" />
-           <input type="submit" value="リセット" />
+
            <a href="@routes.Application.index()">メインページへ戻る</a>
 
      }

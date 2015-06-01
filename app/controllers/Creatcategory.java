@@ -14,8 +14,7 @@ import java.text.ParseException;
 public class Creatcategory extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result category() {
-		List<Categories> cate=Categories.find.all();
-		return ok(category.render(cate));
+		return ok(category.render());
 	}
 
 	@Security.Authenticated(Secured.class)
@@ -26,6 +25,20 @@ public class Creatcategory extends Controller {
 		input = input.bindFromRequest(params);
 		newCate.category_name = input.data().get("category_name");
 		newCate.save();
+		return redirect(routes.Application.index());
+	}
+	public static Result changecategory(){
+		List<Categories> cate=Categories.find.all();
+		return ok(changecategory.render(cate));
+	}
+	public static Result chancategory() {
+		String[] params = { "category_id","category_name"};
+		DynamicForm input = Form.form();
+		input = input.bindFromRequest(params);
+		Integer num=Integer.parseInt(input.data().get("category_id"));
+		Categories cate=Categories.find.byId(num);
+		cate.category_name = input.data().get("category_name");
+		cate.save();
 		return redirect(routes.Application.index());
 	}
 }

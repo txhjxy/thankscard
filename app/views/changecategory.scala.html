@@ -1,0 +1,12 @@
+@(cateList:List[Categories])
+
+@common("カテゴリ変更画面"){
+     <h1>カテゴリ名の変更</h1>
+        <p><form action="@routes.Creatcategory.chancategory()" method="POST">
+          ・既存のカテゴリ<SELECT name="category_id" required>
+          @for(cate <- cateList) {
+       <OPTION value="@(cate.category_id)">@(cate.category_name)</OPTION>}</SELECT><br>
+          ・変更したカテゴリ: <input type="text" name="category_name" /><br>
+           <input type="submit" value="変更" />
+           <input type="reset" value="リセット" /></form>
+           <a href="@routes.Application.index()">メインページへ戻る</a>}
