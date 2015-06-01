@@ -1,12 +1,16 @@
 
  @common("パスワード変更画面"){
+ <center>
+ <div id="changepass">
            <h1>パスワード変更</h1>
-        <p><form action="@routes.Changepass.changepass()" method="POST">
-         新しいパスワード : <input type="Password" name="passward" /><br>
-         新しいパスワードを再入力: <input type="Password" name="pass"/><br>
-        </p>
-    <input type="submit" value="変更" />
-    <input type="reset" value="リセット" />
-    <a href="@routes.Application.index()">メニューへ戻る</a>
-</form>
+        <p> <form action="@routes.Changepass.changepass()" method="POST">
+          新しいパスワード : <input type="Password" name="passward" /><br>
+          新しいパスワードを再入力: <input type="Password" name="pass"/><br>
+         <input type="submit" value="変更" />
+         <input type="reset" value="リセット" />
+         </p>
+         <input type="button" value="メインページ" onclick="location.href='@routes.Application.index()'">
+       </form>
+   </div>
+  </center>
 }

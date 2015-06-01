@@ -1,16 +1,18 @@
 @(deptList:List[Departments])
 
  @common("社員情報変更画面"){
+ <center>
+ <div id=changemp>
    <h1>社員情報変更</h1>
     <p><form action="@routes.Createmp.change()" method="POST">
-     既存の社員情報<br>
+     <b>既存の社員情報</b><br>
      部署名<SELECT name="dept_id" required>
           @for(dept <- deptList) {
        <OPTION value="@(dept.dept_id)">@(dept.dept_name)</OPTION>}</SELECT><br>
      社員名<input type="text" name="emp_name" required/>
     </p>
     <p>
-     変更後の社員情報<br>
+     <b>変更後の社員情報</b><br>
      部署名<SELECT name="dept_id2" required>
           @for(dept <- deptList) {
        <OPTION value="@(dept.dept_id)">@(dept.dept_name)</OPTION>}</SELECT><br>
@@ -23,6 +25,8 @@
     </p>
      <input type="submit" value="変更" />
      <input type="reset" value="リセット" /></form>
-     <a href="@routes.Application.index()">メインページへ戻る</a>
+     <input type="button" value="メインページ" onclick="location.href='@routes.Application.index()'">
+     </div>
+     </center>
 
      }

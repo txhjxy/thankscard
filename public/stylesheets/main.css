@@ -15,6 +15,10 @@
  border:1px solid #000;
 	margin:auto;}
 
+/* 社員変更 */
+#changemp{width:600px;
+ border:1px solid #000;
+	margin:auto;line-height:30px;}
 
 /*  カテゴリ登録 */
 .cate{margin:0px;padding10px;border:5px solid black;}
@@ -24,4 +28,9 @@
 #content{width:600px;
  border:1px solid #000;
 	margin:auto;}
+
+/* 	パスワード変更 */
+ #changepass{width:600px;
+ border:1px solid #000;
+	margin:auto;line-height:30px;}
 
