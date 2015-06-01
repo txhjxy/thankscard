@@ -9,7 +9,8 @@ GET     /login       controllers.Application.login()
 POST    /login       controllers.Application.authenticate()
 
 
-GET     /password       controllers.Application.password()
+GET     /password       controllers.Changepass.password()
+POST    /password     controllers.Changepass.changepass()
 
 GET     /board       controllers.Application.board()
 GET     /cardview       controllers.Application.cardview()
