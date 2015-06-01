@@ -2,8 +2,8 @@
 
 @common("感謝カード入力画面"){
 
+ <div id=content>
   <h1>感謝カード入力</h1>
-
 	<form action="@routes.Application.creatthanks()" method="POST">
     <p>
      助けてもらった方の部署<SELECT name="dept_id" required>
@@ -25,9 +25,9 @@
       <TEXTAREA name="tnk_contents" cols="30" rows="8" required></TEXTAREA>
      </p>
      日付<INPUT size="20" type="date" value="0" name="tnk_date" required><br>
-     <div id=th>
+
      <input type="submit" value="登録" /></form>
-       <a href="@routes.Application.index()">キャンセル</a>
-     </div>
+       <input type="button" value="キャンセル" onclick="location.href='@routes.Application.index()'">
+    </div>
 
      }
