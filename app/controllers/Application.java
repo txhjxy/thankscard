@@ -18,12 +18,13 @@ import java.text.ParseException;
 public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
-		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
+		List<Thanks> tnk=Thanks.find.where().eq("ywk_id",session("emp_id")).orderBy("tnk_date desc").findList();
 		Employees emp=Employees.find.byId(session("emp_id"));
+		String str=new SimpleDateFormat("yyyy-MM-dd").format(tnk.get(0).tnk_date);
 		if(tnk.size()==0){
-			return ok(index.render(Thanks.find.byId(0),emp));
+			return ok(index.render(Thanks.find.byId(0),emp,str));
 		}else{
-			return ok(index.render(tnk.get(0),emp));
+			return ok(index.render(tnk.get(0),emp,str));
 		}
 	}
 
