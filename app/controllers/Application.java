@@ -19,10 +19,11 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
+		Employees emp=Employees.find.byId(session("emp_id"));
 		if(tnk.size()==0){
-			return ok(index.render(Thanks.find.byId(0)));
+			return ok(index.render(Thanks.find.byId(0),emp));
 		}else{
-			return ok(index.render(tnk.get(0)));
+			return ok(index.render(tnk.get(0),emp));
 		}
 	}
 	@Security.Authenticated(Secured.class)

@@ -33,16 +33,6 @@ public class Createmp extends Controller {
 		newEmp.emp_id = input.data().get("emp_id");
 		newEmp.job_id = Integer.parseInt(input.data().get("job_id"));
 		newEmp.save();
-		Date date = new Date();
-		Thanks newThanks =new Thanks();
-		newThanks.emp_id=newEmp;
-		newThanks.help_contents="社員登録しました";
-		newThanks.tnk_contents="社員登録しました";
-		newThanks.category_id=Categories.find.byId(0);
-		newThanks.tnk_date=date;
-		newThanks.emp_id2=newEmp;
-		newThanks.tnk_point=0;
-		newThanks.save();
 		return ok(complete.render(newEmp));
 	}
 	@Security.Authenticated(Secured.class)

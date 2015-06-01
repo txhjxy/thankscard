@@ -1,12 +1,12 @@
-@(thanks:Thanks)
+@(thanks:Thanks,user:Employees)
 
 @common("メインページ"){
 
 <script>
 function blind() {
-	if(@(thanks.emp_id.job_id)==2){
+	if(@(user.job_id)==2){
 		document.getElementById("kei").style.display="block";
-	}else if(@(thanks.emp_id.job_id)==1) {
+	}else if(@(user.job_id)==1) {
 		document.getElementById("jinn").style.display="block";
 	}
 }
