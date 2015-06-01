@@ -26,14 +26,7 @@ public class Application extends Controller {
 			return ok(index.render(tnk.get(0),emp));
 		}
 	}
-	@Security.Authenticated(Secured.class)
-	public static Result changepass(){
-		return ok("新しいパスワードと確認用パスワードが違います");
-	}
-	@Security.Authenticated(Secured.class)
-	public static Result password() {
-		return ok(changepass.render());
-	}
+
 	@Security.Authenticated(Secured.class)
 	public static Result board() {
 		List<Thanks> thanksList = Thanks.find.all();
