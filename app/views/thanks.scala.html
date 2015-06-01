@@ -1,7 +1,7 @@
 @(deptList: List[Departments],categoryList: List[Categories])
 
 @common("感謝カード入力画面"){
-
+<center>
  <div id=content>
   <h1>感謝カード入力</h1>
 	<form action="@routes.Application.creatthanks()" method="POST">
@@ -26,8 +26,11 @@
      </p>
      日付<INPUT size="20" type="date" value="0" name="tnk_date" required><br>
 
-     <input type="submit" value="登録" /></form>
-       <input type="button" value="キャンセル" onclick="location.href='@routes.Application.index()'">
+     <input type="submit" value="登録" />
+     <input type="reset" value="リセット"/>
+       </form>
+       <input type="button" value="メインページ" onclick="location.href='@routes.Application.index()'">
     </div>
+</center>
 
      }
