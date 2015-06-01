@@ -11,6 +11,16 @@ function blind() {
 	}
 }
 setInterval('blind()',1);
+function newinfo(){
+		document.open();
+		if(@(thanks.tnkcard_id)!=0){
+			document.write("新着情報：<br>送信者：@(thanks.emp_id2.emp_name)<br>")
+			document.write("日付：@(thanks.tnk_date)<br><br>感謝内容：@(thanks.help_contents)<br><br>感謝の言葉@(thanks.tnk_contents)");
+		}else{
+			document.write("感謝カードが1枚もありません");
+		}
+		document.close();
+}
 
 </script>
 <h1>メインページ</h1>
@@ -29,9 +39,8 @@ setInterval('blind()',1);
         </p>
         <p>
          <div id="new">
-          新着情報：<br>送信者：@(thanks.emp_id2.emp_name)<br>
-          日付：@(thanks.tnk_date)<br><br>感謝内容：@(thanks.help_contents)<br><br>感謝の言葉：@(thanks.tnk_contents)
-
+         <script type="text/javascript">
+         newinfo();</script>
          </div>
          </p>
          <p>

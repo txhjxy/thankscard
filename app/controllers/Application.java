@@ -19,7 +19,11 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
-		return ok(index.render(tnk.get(0)));
+		if(tnk.size()==0){
+			return ok(index.render(Thanks.find.byId(0)));
+		}else{
+			return ok(index.render(tnk.get(0)));
+		}
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result changepass(){
@@ -91,7 +95,6 @@ public class Application extends Controller {
 	public static Result login() {
 		return ok(login.render(Form.form(Employees.class)));
 	}
-	@Security.Authenticated(Secured.class)
 	public static Result authenticate() {
 		Form<Employees> loginForm = Form.form(Employees.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
