@@ -1,7 +1,7 @@
 @(thanks:Thanks,user:Employees,date:String)
 
 @common("メインページ"){
-
+<div id=main>
 <script>
 function blind() {
 	if(@(user.job_id)==2){
@@ -66,7 +66,6 @@ function newinfo(){
          </ul>
         </div>
         </p>
-
-        <a href="@routes.Application.logout()">ログアウト</a>
-
+ <input type="button" value="ログアウト" onclick="@routes.Application.logout()">
+</div>
  }

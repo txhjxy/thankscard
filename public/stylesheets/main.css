@@ -2,7 +2,8 @@
 
 /* main */
 
-.menu{border:solid;padding: 10px 1px 10px 20px;width:400px;}
+.menu{border:solid;padding: 10px 1px 10px 20px;width:400px;
+      font-size:large;}
 #new{border:solid;padding: 20px 10px 10px 10px;width:400px;
      position:absolute;top:60px;left:500px;width:200px;height:300px;
      word-wrap: break-word;
@@ -20,11 +21,21 @@
  border:1px solid #000;
 	margin:auto;line-height:30px;}
 
+/* é–àıìoò^ */
+#conp{width:600px;
+ border:1px solid #000;
+	margin:auto;line-height:30px;}
+
 /*  ÉJÉeÉSÉäìoò^ */
 #cate{width:600px;
  border:1px solid #000;
-	margin:auto;
-	line-height:40px;}
+	margin: 0;
+	paddint: 0;
+	position: relative;
+	min-width: 600px;
+	min-height:300px;
+	line-height:40px;
+	font-size:150%;}
 
 /* ÉJÉeÉSÉäïœçX */
 #change{width:600px;
@@ -43,3 +54,7 @@
  border:1px solid #000;
 	margin:auto;line-height:30px;}
 
+td{
+width: 200px;
+word-wrap:break-word
+}
