@@ -10,7 +10,7 @@
  .list li{margin-bottom:10px;}
 
 /*  Ğˆõ“o˜^ */
- .syain{line-height:30px;}
+ .syain{line-height:40px;}
  #create{width:600px;
  border:1px solid #000;
 	margin:auto;}
@@ -21,7 +21,16 @@
 	margin:auto;line-height:30px;}
 
 /*  ƒJƒeƒSƒŠ“o˜^ */
-.cate{margin:0px;padding10px;border:5px solid black;}
+#cate{width:600px;
+ border:1px solid #000;
+	margin:auto;
+	line-height:40px;}
+
+/* ƒJƒeƒSƒŠ•ÏX */
+#change{width:600px;
+ border:1px solid #000;
+	margin:auto;
+	line-height:40px;}
 
 /* Š´ÓƒJ[ƒh“ü—Í */
 #th{}
