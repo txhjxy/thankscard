@@ -1,10 +1,12 @@
-@(thanksList: List[Thanks],employees: List[Employees],deptList:List[Departments])
+@(thanksList: List[com.avaje.ebean.SqlRow],employees: List[Employees],deptList:List[Departments])
 @common("掲示板"){
    感謝される人<br><form action="@routes.Board.serchboard()" method="POST">
    部署名<SELECT name="dept_id2">
     @for(dept <- deptList) {
          <OPTION value="@(dept.dept_id)">@dept.dept_name</OPTION>}</SELECT>
    名前<input type="text" name="emp_name2">
+   @for(employees <- employees){
+       <OPTION value="@(employees.emp_id)">@employees.emp_name</OPTION>}</SELECT>
    日付<input type="date" name="tnk_date">
    <input type="checkbox" />感謝度並び替え<br>
    感謝した人<br>
@@ -38,13 +40,13 @@
       </tr>
       @for(thanks <- thanksList){
       <tr>
-      	<td>@thanks.tnk_date</td>
-      	<td>@thanks.emp_id.dept_id.dept_name</td>
-      	<td>@thanks.emp_id.emp_name</td>
-		<td>@thanks.help_contents</td>
-		<td>@thanks.tnk_contents</td>
-      	<td>@thanks.emp_id2.dept_id.dept_name</td>
-      	<td>@thanks.emp_id2.emp_name</td>
+      	<td>@thanks.get("tnk_date")</td>
+      	<td>@thanks.get("emp_id.dept_id.dept_name")</td>
+      	<td>@thanks.get("emp_id.emp_name")</td>
+		<td>@thanks.get("help_contents")</td>
+		<td>@thanks.get("tnk_contents")</td>
+      	<td>@thanks.get("emp_id2.dept_id.dept_name")</td>
+      	<td>@thanks.get("emp_id2.emp_name")</td>
       </tr>
       }
       </table>
