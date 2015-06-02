@@ -1,11 +1,61 @@
- @(thanksList: List[Thanks],deptList: List[Departments])
+@(thanksList: List[Thanks],categoryList: List[Categories])
+<html lang="ja">
+<head>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>
+$(function() {
+  var page = 0;
+  function draw() {
+    $('#page').html(page + 1);
+    $('tr').hide();
+    $('tr:first,tr:gt(' + page * 10 + '):lt(10)').show();
+  }
+  $('#prev').click(function() {
+    if (page > 0) {
+      page--;
+      draw();
+    }
+  });
+  $('#next').click(function() {
+    if (page < ($('tr').size() - 1) / 10 - 1) {
+      page++;
+      draw();
+    }
+  });
+  draw();
+});
+</script>
+<style>
+td, th {
+  border: 1px solid black;
+  padding: 2px;
+}
+#prev, #next {
+  color: red;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
 
- @common("代表的事例一覧"){
-     <h1>代表的な感謝カード一覧</h1>
+<h1>代表的一覧の表示</h1>
+<span id="prev">＜</span>　<span id="page"></span>　<span id="next">＞</span>
 
-     <SELECT name="dept_id" required>
-          @for(dept <- deptList) {
-       <OPTION value="@(dept.dept_id)">@(dept.dept_name)</OPTION>}</SELECT>
+<form action="@routes.Application.exampleSelect()"method="POST">
+     <SELECT name="category_id" required>
+          @for(cate <- categoryList) {
+       <OPTION value=@(cate.category_id)>@(cate.category_name)</OPTION>}
+     </SELECT>
+
+
+
+          <input type="submit" value="Update" />
+
+</form>
+
+
 <p>
 
       <table border=1>
@@ -44,4 +94,6 @@
 
 
 
-     }
+</table>
+</body>
+</html>

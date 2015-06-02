@@ -50,6 +50,7 @@ public class Application extends Controller {
 		List<Categories> cate=Categories.find.all();
 		List<Thanks> thanksList = Thanks.find.where().orderBy("tnk_point desc").findList();
 
+
 		return ok(example.render(thanksList,cate));
 	}
 	@Security.Authenticated(Secured.class)
