@@ -25,7 +25,11 @@ GET     /complete       controllers.Createmp.complete()
 POST     /complete       controllers.Createmp.complete()
 GET     /createmp       controllers.Createmp.createmp()
 GET     /detail       controllers.Application.detail()
+
 GET     /example       controllers.Application.example()
+POST     /example       controllers.Application.exampleSelect()
+
+
 GET     /thanks       controllers.Application.thanks()
 POST    /thanks       controllers.Application.creatthanks()
 
