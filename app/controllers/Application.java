@@ -15,7 +15,12 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
+
 public class Application extends Controller {
+
+	public static  Calendar cal1 = Calendar.getInstance();
+
+
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("ywk_id",session("emp_id")).orderBy("tnk_date desc").findList();
@@ -42,10 +47,35 @@ public class Application extends Controller {
 	}
 	@Security.Authenticated(Secured.class)
 	public static Result example() {
-		List<Thanks> thanksList = Thanks.find.orderBy("tnk_point desc").findList();
-		List<Departments> dept=Departments.find.all();
-		return ok(example.render(thanksList,dept));
+		List<Categories> cate=Categories.find.all();
+		List<Thanks> thanksList = Thanks.find.where().orderBy("tnk_point desc").findList();
+
+		return ok(example.render(thanksList,cate));
 	}
+	@Security.Authenticated(Secured.class)
+	public static Result exampleSelect() {
+
+		int diff = cal1.get(Calendar.MONTH)+1;
+		String diff2 = String.valueOf(diff);
+		String i;
+
+		if(diff<10){
+			i = "%0" + diff2 + "%";
+
+		} else{
+			i = "%" + diff2 + "%";
+		}
+
+		String[] params = {"category_id"};
+		DynamicForm input = Form.form();
+		input = input.bindFromRequest(params);
+		Categories cate=Categories.find.byId(Integer.parseInt(input.data().get("category_id")));
+		List<Thanks> thanksList = Thanks.find.where().eq("category_id",cate).like("tnk_date",i).orderBy("tnk_point desc").findList();
+		List<Categories> cateList=Categories.find.all();
+
+		return ok(example.render(thanksList,cateList));
+	}
+
 	@Security.Authenticated(Secured.class)
 	public static Result detail() {
 		return ok(detail.render());
