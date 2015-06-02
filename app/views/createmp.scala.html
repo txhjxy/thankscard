@@ -1,6 +1,7 @@
 @(deptList:List[Departments])
  @common("社員情報登録画面"){
- <div id=create>
+<center>
+ <div id=cate>
      <h1>社員情報登録</h1>
   <div class="syain">
     <p><form action="@routes.Createmp.complete()" method="POST">
@@ -17,13 +18,13 @@
          </SELECT>
     </p>
 
-  </div>
- <input type="submit" value="登録" />
- <input type="reset" value="リセット" />
- </form>
+   </div>
+  <input type="submit" value="登録" />
+  <input type="reset" value="リセット" />
+  </form>
   <input type="button" value="メインページ" onclick="location.href='@routes.Application.index()'">
-</div>
-
+ </div>
+</center>
 
 
 

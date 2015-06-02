@@ -1,10 +1,12 @@
   @common("カテゴリ登録画面"){
+  <center>
+   <div id=cate>
      <h1>カテゴリ登録</h1>
         <p><form action="@routes.Creatcategory.creatcategory()" method="POST">
           カテゴリ名: <input type="text" name="category_name" /><br>
            <input type="submit" value="登録" /></form>
         </p>
-
-           <a href="@routes.Application.index()">メインページへ戻る</a>
-
+           <input type="button" value="メインページ" onclick="location.href='@routes.Application.index()'">
+    </div>
+   </center>
      }
