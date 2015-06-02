@@ -20,23 +20,17 @@ public class Application extends Controller {
 	public static Result index() {
 		List<Thanks> tnk=Thanks.find.where().eq("ywk_id",session("emp_id")).orderBy("tnk_date desc").findList();
 		Employees emp=Employees.find.byId(session("emp_id"));
-		String str=new SimpleDateFormat("yyyy-MM-dd").format(tnk.get(0).tnk_date);
 		if(tnk.size()==0){
+			String str=new SimpleDateFormat("yyyy-MM-dd").format(Thanks.find.byId(0).tnk_date);
 			return ok(index.render(Thanks.find.byId(0),emp,str));
 		}else{
+			String str=new SimpleDateFormat("yyyy-MM-dd").format(tnk.get(0).tnk_date);
 			return ok(index.render(tnk.get(0),emp,str));
 		}
 	}
-
-	@Security.Authenticated(Secured.class)
-	public static Result board() {
-		List<Thanks> thanksList = Thanks.find.all();
-		List<Employees> employees=Employees.find.all();
-		return ok(board.render(thanksList,employees));
-	}
 	@Security.Authenticated(Secured.class)
 	public static Result cardview() {
-		List<Thanks> tnk=Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
+		List<Thanks> tnk =Thanks.find.where().eq("tnk_id",session("emp_id")).orderBy("tnk_date desc").findList();
 
 		return ok(cardview.render(tnk));
 	}
